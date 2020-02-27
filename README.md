@@ -37,5 +37,5 @@ yarn
 react-native start
 ```
 
-Rodando iOS: `pod install && react-native run-ios`
-Rodando Android: `react-native run-android`
+Rodando iOS: `pod install && react-native run-ios`  
+Rodando Android: `react-native run-android`  
