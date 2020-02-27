@@ -7,6 +7,10 @@ function GithubRepo({ navigation }) {
   return <WebView source={{ uri: repository.html_url }} style={{ flex: 1 }} />;
 }
 
+GithubRepo.navigationOptions = ({ navigation }) => ({
+  title: navigation.getParam('starred').name,
+});
+
 GithubRepo.propTypes = {
   navigation: PropTypes.shape({
     getParam: PropTypes.func,
