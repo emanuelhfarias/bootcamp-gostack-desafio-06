@@ -3,12 +3,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import Main from './pages/Main';
 import User from './pages/User';
+import GithubRepo from './pages/GithubRepo';
 
 const Routes = createAppContainer(
   createStackNavigator(
     {
       Main,
       User,
+      GithubRepo,
     },
     {
       defaultNavigationOptions: {

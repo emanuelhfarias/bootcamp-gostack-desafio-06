@@ -25,6 +25,7 @@ export default class User extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
+      navigate: PropTypes.func,
     }).isRequired,
   };
 
@@ -66,9 +67,14 @@ export default class User extends Component {
     });
   };
 
+  handleNavigate = starred => {
+    const { navigation } = this.props;
+    navigation.navigate('GithubRepo', { starred });
+  };
+
   render() {
     const { navigation } = this.props;
-    const { stars, loading } = this.state;
+    const { stars, loading, refreshing } = this.state;
     const user = navigation.getParam('user');
     return (
       <Container>
@@ -83,10 +89,10 @@ export default class User extends Component {
           onEndReachedThreshold={0.2}
           onEndReached={this.loadMore}
           onRefresh={this.refreshList}
-          refreshing={this.state.refreshing}
+          refreshing={refreshing}
           keyExtractor={star => String(star.id)}
           renderItem={({ item }) => (
-            <Starred>
+            <Starred onPress={() => this.handleNavigate(item)}>
               <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
               <Info>
                 <Title>{item.name}</Title>

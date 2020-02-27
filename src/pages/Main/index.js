@@ -65,8 +65,7 @@ export default class Main extends Component {
       newUser: '',
       loading: false,
     });
-    console.log(this.state.users);
-    console.log(response);
+
     Keyboard.dismiss();
   };
 
